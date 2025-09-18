@@ -84,58 +84,10 @@
       text-align: center;
       padding: 20px;
     }
-  
-    header {
-      position: relative;
-      height: 300px;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-    header h1, header p, header img { z-index: 2; position: relative; }
-    .network-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: radial-gradient(circle at 20% 30%, rgba(25,118,210,0.6), transparent 70%),
-                  radial-gradient(circle at 80% 70%, rgba(13,71,161,0.6), transparent 70%);
-      background-size: 200% 200%;
-      animation: movebg 10s infinite alternate ease-in-out;
-      z-index: 1;
-    }
-    @keyframes movebg {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 100% 100%; }
-    }
-    header::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
-      opacity: 0.3;
-      z-index: 1;
-    }
-
-    /* Fade-in animacija sekcija */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-</style>
+  </style>
 </head>
 <body>
   <header>
-    <div class="network-bg"></div>
   <img src="drnet_logo.jpg" alt="IT Firma logo" style="height:80px;">
   <h1>DRnet</h1>
   <p>Vaš partner za IT usluge i podršku</p>
@@ -147,19 +99,23 @@
     <a href="#contact">Kontakt</a>
   </nav>
 
-  <section id="about" class="fade-in">
+  <section id="about">
     <h2>O nama</h2>
-    <p>Naša firma pruža profesionalne IT usluge i rješenja za mala i srednja poduzeća. Fokusirani smo na sigurnost, stabilnost i inovacije kako bi vaši sistemi uvijek radili bez prekida.</p>
+    <p>Naša firma pruža profesionalne IT usluge i rješenja za mala i srednja poduzeća. Fokusirani smo na sigurnost, stabilnost i inovacije kako bi vaši sistemi uvijek radili bez prekida.Osnovani smo 2018. godine i od tada surađujemo sa mnogo domaćih i stranih kompanija kao i sa privatnim osobama.</p>
   </section>
 
-  <section id="services" class="fade-in">
+  <section id="services">
     <h2>Usluge</h2>
     <div class="services">
+      
       <div class="card">
         <i class="fas fa-network-wired fa-2x"></i>
         <h3>Mrežna rješenja</h3>
         <p>Projektiranje i održavanje pouzdanih mreža.</p>
+        <p><strong>Programiranje Aruba, HP i Cisco mrežne opreme (switch i access point), konfiguracija Fortigate i Palo Alto firewall-a.</strong></p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Cisco_logo.svg/320px-Cisco_logo.svg.png" alt="Mrežna oprema" style="max-width:100%; margin-top:10px;"> 
       </div>
+
       <div class="card">
         <i class="fas fa-laptop-code fa-2x"></i>
         <h3>Razvoj softvera</h3>
@@ -178,7 +134,7 @@
     </div>
   </section>
 
-  <section id="contact" class="fade-in">
+  <section id="contact">
     <h2>Kontakt</h2>
     <form action="https://formsubmit.co/drnet18@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Vaše ime" required>
@@ -205,18 +161,5 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-
-  <script>
-  const faders = document.querySelectorAll('.fade-in');
-  const appearOptions = { threshold: 0.1 };
-  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    });
-  }, appearOptions);
-  faders.forEach(fader => { appearOnScroll.observe(fader); });
-  </script>
 </body>
 </html>
